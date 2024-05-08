@@ -119,7 +119,7 @@ class EasyLocalizationController extends ChangeNotifier {
   Future<Map<String, dynamic>?> loadBaseLangTranslationData(
       Locale locale) async {
     try {
-      return await loadTranslationData(Locale(locale.languageCode));
+      return await loadTranslationData(Locale(locale.languageCode,locale.countryCode));
     } on FlutterError catch (e) {
       // Disregard asset not found FlutterError when attempting to load base language fallback
       EasyLocalization.logger.warning(e.message);
