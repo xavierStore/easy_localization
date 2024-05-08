@@ -97,7 +97,7 @@ class EasyLocalizationController extends ChangeNotifier {
         Map<String, dynamic>? baseLangData;
         if (_locale.countryCode != null && _locale.countryCode!.isNotEmpty) {
           baseLangData =
-              await loadBaseLangTranslationData(Locale(locale.languageCode));
+              await loadBaseLangTranslationData(Locale(locale.languageCode,locale.countryCode));
         }
         data = Map.from(await loadTranslationData(_fallbackLocale!));
         if (baseLangData != null) {
